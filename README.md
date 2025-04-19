@@ -43,7 +43,14 @@ To classify images showing **public safety hazards**, such as:
 
 ## 📁 Repository Structure
 
-life_safety_cnn/ ├── model.py # CNN architecture ├── train.py # Training script with metrics tracking ├── dataset/ # train/ and test/ image folders ├── plots/ # Accuracy/Loss graphs and confusion matrix ├── README.md
+life_safety_cnn/ 
+  ├── model.py # CNN architecture 
+  ├── train.py # Training script with metrics tracking 
+  ├── dataset/ # train/ and test/ image folders 
+  ├── plots/ # Accuracy/Loss graphs and confusion matrix 
+  ├── README.md
+
+  
 ---
 
 ## 💡 Notes
