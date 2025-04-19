@@ -55,13 +55,12 @@ life_safety_cnn/
 │       ├── traffic_accident/
 │       └── ...
 ├── model.py               # CNN architecture
-├── train.py               # Training script with metrics
 ├── plots/
 │   ├── accuracy.png
 │   ├── loss.png
 │   └── confusion_matrix.png
 ├── life_safety_model.pt   # Saved trained model
-└── README.md              # Project documentation
+README.md              # Project documentation
 ```
 
   
