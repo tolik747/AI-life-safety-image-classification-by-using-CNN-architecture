@@ -43,7 +43,7 @@ To classify images showing **public safety hazards**, such as:
 
 ## 📁 Repository Structure
 
-<pre> ## 📁 Project Structure ``` life_safety_cnn/ ├── dataset/ │ ├── train/ │ │ ├── broken_roads/ │ │ ├── traffic_accident/ │ │ └── ... (total 7 categories) │ └── test/ │ ├── broken_roads/ │ ├── traffic_accident/ │ └── ... ├── model.py # CNN architecture ├── train.py # Training script with metrics ├── plots/ │ ├── accuracy.png │ ├── loss.png │ └── confusion_matrix.png ├── life_safety_model.pt # Saved trained model └── README.md # Project documentation ``` </pre>
+life_safety_cnn/ ├── dataset/ │ ├── train/ │ │ ├── broken_roads/ │ │ ├── traffic_accident/ │ │ └── ... (total 7 categories) │ └── test/ │ ├── broken_roads/ │ ├── traffic_accident/ │ └── ... ├── model.py # CNN architecture ├── train.py # Training script with metrics ├── plots/ │ ├── accuracy.png │ ├── loss.png │ └── confusion_matrix.png ├── life_safety_model.pt # Saved trained model └── README.md # Project documentation
 
   
 ---
