@@ -8,31 +8,31 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import numpy as np
 
-# 📏 Параметри
+# parameters
 img_size = 64
 batch_size = 32
 num_classes = 7
 epochs = 20
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# 🔁 Трансформації
+# transform
 transform = transforms.Compose([
     transforms.Resize((img_size, img_size)),
     transforms.ToTensor()
 ])
 
-# 📂 Шляхи
+# data
 train_dir = "./dataset/train"
 test_dir = "./dataset/test"
 
-# 📦 Завантаження даних
+# loud data
 train_dataset = datasets.ImageFolder(train_dir, transform=transform)
 test_dataset = datasets.ImageFolder(test_dir, transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-# 🧠 CNN-модель (як у статті)
+# cnn
 class LifeSafetyCNN(nn.Module):
     def __init__(self):
         super(LifeSafetyCNN, self).__init__()
@@ -66,15 +66,15 @@ class LifeSafetyCNN(nn.Module):
 
 model = LifeSafetyCNN().to(device)
 
-# ⚙️ Оптимізація
+# optim
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# 📊 Логи
+# log
 train_loss_list = []
 train_acc_list = []
 
-# 🏋️ Тренування
+# train
 for epoch in range(epochs):
     model.train()
     running_loss = 0.0
@@ -103,7 +103,7 @@ for epoch in range(epochs):
 
     print(f"Epoch {epoch+1}/{epochs} - Loss: {epoch_loss:.4f} - Train Acc: {epoch_acc:.2f}%")
 
-# 📈 Графіки
+# graf
 plt.figure(figsize=(10, 4))
 plt.plot(train_loss_list, label='Training Loss', color='red')
 plt.title('Training Loss Over Epochs')
@@ -122,7 +122,7 @@ plt.grid(True)
 plt.legend()
 plt.show()
 
-# 🧪 Тестування
+# testing
 model.eval()
 correct = 0
 total = 0
@@ -140,7 +140,7 @@ with torch.no_grad():
         all_labels.extend(labels.cpu().numpy())
 
 test_acc = correct / total * 100
-print(f"\n✅ Точність на тестовому наборі: {test_acc:.2f}%")
+print(f"\n Presnosť: {test_acc:.2f}%")
 
 # 📉 Confusion Matrix
 cm = confusion_matrix(all_labels, all_preds)
@@ -151,6 +151,6 @@ plt.title('Confusion Matrix')
 plt.grid(False)
 plt.show()
 
-# 💾 Збереження моделі
+# don model
 torch.save(model.state_dict(), "life_safety_model.pt")
 print("\n💾 Модель збережено як 'life_safety_model.pt'")
